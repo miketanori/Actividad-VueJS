@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vue</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        
+        <h1 id="app" style="text-align: center; color: rgb(13, 112, 119)">
+            {{ message }}
+        </h1>
+
+        <div id="app-2" text-align: center>
+           <ol>
+               <li v-for="msg in bucl">
+                 {{ msg.message }}
+               </li>
+           </ol>
+        </div>
+
+        <div id="detalle">
+           <p> Nombre del alumno: {{name}}</p>
+           <p> Fecha de hoy: {{date}}</p>
+        </div>
+
+        <div id="hide">
+            <img v-if="!isHidden" style="width:200px;height:150px;display: block;margin: 0 auto;" v-bind:src="imag">
+            <div class="col-md-12 text-center">
+            <button class="btn btn-primary" v-on:click="isHidden = !isHidden">Show/Hide</button>
+            </div>
+        </div>
+
+        <div id = "mensaje">
+        <p>Message is: {{ message }}</p>
+        <input v-model="message" placeholder="edit me" />
+        </div>
+        
+        <script src="basic.js"></script>
+    </body>
+
+</html>
