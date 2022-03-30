@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Turismo en Monterrey</title>
-        <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.js"></script>
+        <script src="https://unpkg.com/vue@3"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     </head>
     <body style="background-color:rgb(224, 211, 235);">
@@ -12,6 +12,16 @@
         <h1 id="app" style="text-align: center; color: rgb(57, 8, 172)">
             {{ message }}
         </h1>
+        
+        <script>
+            Vue.createApp({
+                data() {
+                    return {
+                        mensaje: 'Turismo en Monterrey'
+                    }
+                }
+            }).mount('#app')
+        </script>
 
         <div id="app-2">
             <h3>Lugares que visitar</h3>
@@ -29,25 +39,7 @@
         <style>
             .done { text-decoration: line-through; }
         </style>
-        
-        <div id="detalle">
-           <p> Nombre del alumno: {{name}}</p>
-           <p> Fecha de hoy: {{date}}</p>
-        </div>
 
-        <div id="hide">
-            <img v-if="!isHidden" style="width:200px;height:150px;display: block;margin: 0 auto;" v-bind:src="imag">
-            <div class="col-md-12 text-center">
-            <button class="btn btn-primary" v-on:click="isHidden = !isHidden">Show/Hide</button>
-            </div>
-        </div>
-
-        <div id = "mensaje">
-        <p>Hobby sugerido: {{ message }}</p>
-        <input v-model="message" placeholder="Sugiere un hobby" />
-        </div>
-        
-        <script src="basic.js"></script>
         <script>
             let id = 0;
             Vue.createApp({
@@ -76,6 +68,64 @@
                 }
             }).mount('#app-2')
         </script>
+
+        <div id="detalle">
+           <p> Nombre del alumno: {{name}}</p>
+           <p> Fecha de hoy: {{date}}</p>
+        </div>
+
+        <script>
+            Vue.createApp({
+                data() {
+                    return {
+                        name: 'Miguel Tanori',
+                        date: '29 de marzo de 2022'
+                    }
+                } 
+            }).mount('#detalle')
+        </script>
+
+        <div id="hide">
+            <img v-if="!isHidden" style="width:200px;height:150px;display: block;margin: 0 auto;" v-bind:src="imag">
+            <div class="col-md-12 text-center">
+            <button class="btn btn-primary" v-on:click="isHidden = !isHidden">Show/Hide</button>
+            </div>
+        </div>
+
+        <script>
+            Vue.createApp({
+                data() {
+                    return {
+                        isHidden: false,
+                        imag: GetRandomImage()
+                    }
+                } 
+            }).mount('#hide')
+
+            function GetRandomImage(){
+                let picturePath = ''
+                let imageBank = ['https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic1.makeuseofimages.com%2Fwordpress%2Fwp-content%2Fuploads%2F2015%2F09%2Flearn-music.jpg&f=1&nofb=1','https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.incimages.com%2Fuploaded_files%2Fimage%2F1920x1080%2Fgetty_636337794_372776.jpg&f=1&nofb=1','https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.mypetzilla.co.uk%2Ffiles%2F2515%2F4177%2F7324%2FMaltipoo_Dog.jpg&f=1&nofb=1','https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2FYy1rcP0.jpg&f=1&nofb=1']
+                picturePath += imageBank[Math.floor(Math.random()* imageBank.length)]
+                return picturePath
+            }
+        </script>
+
+        <div id = "mensaje">
+        <p>Lugar sugerido: {{ message }}</p>
+        <input v-model="message" placeholder="Sugiere un lugar en monterrey" />
+        </div>
+        
+        <script>
+            Vue.createApp({
+                data() {
+                    return {
+                        message: ''
+                    }
+                } 
+            }).mount('#mensaje')
+        </script>
+
+        
     </body>
 
 </html>

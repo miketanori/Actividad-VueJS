@@ -7,7 +7,6 @@ var app = new Vue({
 
 
 
-
 var app3 = new Vue({
     el: '#hide',
     data: {
