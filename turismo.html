@@ -13,13 +13,22 @@
             {{ message }}
         </h1>
 
-        <div id="app-2" text-align: center>
-           <ol>
-               <li v-for="msg in bucl">
-                 {{ msg.message }}
-               </li>
-           </ol>
+        <div id="app-3">
+            <h3>Lugares que visitar</h3>
+            <ul>
+                <li v-for="lugar in filteredLugares" :key="lugar.id">
+                    <input type="checkbox" v-model="lugar.done">
+                    <span :class="{ done: lugar.done }">{{ task.text }}</span>
+                </li>
+            </ul>
+            <button @click="toogleHideCompleted">
+                {{ hideCompleted ? 'Muestra todos los lugares' : 'Esconde los lugares visitados' }}
+            </button>
         </div>
+        
+        <style>
+            .done { text-decoration: line-through; }
+        </style>
         
         <div id="detalle">
            <p> Nombre del alumno: {{name}}</p>

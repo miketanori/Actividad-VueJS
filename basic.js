@@ -5,17 +5,33 @@ var app = new Vue({
     }
 });
 
-var app2 = new Vue({
-    el: '#app-2',
-    data: {
-        bucl:[
-            { message:"Parque Fundidora"  },
-            { message:"Museo Marco" },
-            { message:"Parque Ecológico Chipinque" },
-            { message: "Paseo Santa Lucía" },
-            { message: "Bioparque Estrella" },
-        ]
+let id = 0;
+var app3 = new Vue({
+    el: '#app-3',
+    data(){
+        return {
+            hideCompleted: false,
+            tasks: [
+                { id: id++, text: "Parque Fundidora", done: false },
+                { id: id++, text: "Museo Marco", done: true },
+                { id: id++, text: "Parque Ecológico Chipinque", done: false },
+                { id: id++, text: "Paseo Santa Lucía", done: false }, 
+                { id: id++, text: "Bioparque Estrella", done: false }]
+        }
+    },
+    methods: {
+        toogleHideCompleted(){
+            this.hideCompleted = !this.hideCompleted
+        }
+    },
+    computed: {
+        filteredTasks() {
+            return this.hideCompleted
+                ? this.tasks.filter((t) => !t.done)
+                : this.tasks
+        }
     }
+
   })
 
 
