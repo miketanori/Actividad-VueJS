@@ -1,7 +1,7 @@
 var app = new Vue({ 
     el: '#app',
     data: {
-        message: 'Pasatiempos'
+        message: 'Turismo en Monterrey'
     }
 });
 
@@ -9,11 +9,11 @@ var app2 = new Vue({
     el: '#app-2',
     data: {
         bucl:[
-            { message:"Hacer música"  },
-            { message:"Escuchar música" },
-            { message:"Leer artículos" },
-            { message: "Jugar con mi perrito" },
-            { message: "Ver películas" },
+            { message:"Parque Fundidora"  },
+            { message:"Museo Marco" },
+            { message:"Parque Ecológico Chipinque" },
+            { message: "Paseo Santa Lucía" },
+            { message: "Bioparque Estrella" },
         ]
     }
   })
@@ -39,7 +39,7 @@ var detalle = new Vue({
     el: '#detalle',
     data: {
         name: 'Miguel Tanori',
-        date: '22 de marzo de 2022',
+        date: '29 de marzo de 2022',
     } 
 })
 
