@@ -11,7 +11,7 @@ var app3 = new Vue({
     data(){
         return {
             hideCompleted: false,
-            tasks: [
+            lugares: [
                 { id: id++, text: "Parque Fundidora", done: false },
                 { id: id++, text: "Museo Marco", done: true },
                 { id: id++, text: "Parque Ecológico Chipinque", done: false },
@@ -25,10 +25,10 @@ var app3 = new Vue({
         }
     },
     computed: {
-        filteredTasks() {
+        filteredLugares() {
             return this.hideCompleted
-                ? this.tasks.filter((t) => !t.done)
-                : this.tasks
+                ? this.lugares.filter((t) => !t.done)
+                : this.lugares
         }
     }
 
