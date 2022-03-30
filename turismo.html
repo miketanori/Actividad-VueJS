@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Turismo en Monterrey</title>
-        <script src="https://cdn.jsdelivr.net/npm/vue@3.2.1/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     </head>
     <body style="background-color:rgb(224, 211, 235);">
@@ -13,7 +13,7 @@
             {{ message }}
         </h1>
 
-        <div id="app-3">
+        <div id="app-2">
             <h3>Lugares que visitar</h3>
             <ul>
                 <li v-for="lugar in filteredLugares" :key="lugar.id">
@@ -48,6 +48,34 @@
         </div>
         
         <script src="basic.js"></script>
+        <script>
+            let id = 0;
+            Vue.createApp({
+                data(){
+                    return {
+                        hideCompleted: false,
+                        lugares: [
+                            { id: id++, text: "Parque Fundidora", done: true },
+                            { id: id++, text: "Museo Marco", done: true },
+                            { id: id++, text: "Parque Ecológico Chipinque", done: false },
+                            { id: id++, text: "Paseo Santa Lucía", done: false },
+                            { id: id++, text: "Bioparque Estrella", done: false } ]
+                    }
+                },
+                methods: {
+                    toogleHideCompleted(){
+                        this.hideCompleted = !this.hideCompleted
+                    }
+                },
+                computed: {
+                    filteredLugares() {
+                        return this.hideCompleted
+                            ? this.lugares.filter((t) => !t.done)
+                            : this.lugares
+                    }
+                }
+            }).mount('#app-2')
+        </script>
     </body>
 
 </html>

@@ -1,36 +1,11 @@
 var app = new Vue({ 
     el: '#app',
     data: {
-        message: 'Pasatiempos'
+        message: 'Turismo en Monterrey'
     }
 });
 
-var app2 = new Vue({
-    el: '#app-3',
-    data(){
-        return {
-            hideCompleted: false,
-            lugares: [
-                { id: id++, text: "Parque Fundidora", done: true },
-                { id: id++, text: "Museo Marco", done: true },
-                { id: id++, text: "Parque Ecológico Chipinque", done: false },
-                { id: id++, text: "Paseo Santa Lucía", done: false },
-                { id: id++, text: "Bioparque Estrella", done: false } ]
-        }
-    },
-    methods: {
-        toogleHideCompleted(){
-            this.hideCompleted = !this.hideCompleted
-        }
-    },
-    computed: {
-        filteredLugares() {
-            return this.hideCompleted
-                ? this.lugares.filter((t) => !t.done)
-                : this.lugares
-        }
-    }
-  })
+
 
 
 var app3 = new Vue({
@@ -53,7 +28,7 @@ var detalle = new Vue({
     el: '#detalle',
     data: {
         name: 'Miguel Tanori',
-        date: '22 de marzo de 2022',
+        date: '29 de marzo de 2022',
     } 
 })
 
