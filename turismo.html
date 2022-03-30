@@ -3,23 +3,32 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Vue</title>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <title>Turismo en Monterrey</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@3.2.1/dist/vue.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     </head>
-    <body>
+    <body style="background-color:rgb(224, 211, 235);">
         
-        <h1 id="app" style="text-align: center; color: rgb(13, 112, 119)">
+        <h1 id="app" style="text-align: center; color: rgb(57, 8, 172)">
             {{ message }}
         </h1>
 
-        <div id="app-2" text-align: center>
-           <ol>
-               <li v-for="msg in bucl">
-                 {{ msg.message }}
-               </li>
-           </ol>
+        <div id="app-3">
+            <h3>Lugares que visitar</h3>
+            <ul>
+                <li v-for="lugar in filteredLugares" :key="lugar.id">
+                    <input type="checkbox" v-model="lugar.done">
+                    <span :class="{ done: lugar.done }">{{ lugar.text }}</span>
+                </li>
+            </ul>
+            <button @click="toogleHideCompleted">
+                {{ hideCompleted ? 'Mostrar todos' : 'Ocultar completados' }}
+            </button>
         </div>
+        
+        <style>
+            .done { text-decoration: line-through; }
+        </style>
         
         <div id="detalle">
            <p> Nombre del alumno: {{name}}</p>
